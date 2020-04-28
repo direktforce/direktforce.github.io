@@ -1,0 +1,40 @@
+.showcase {
+  height: min(100vh, 1000px);
+  padding: 120px 0;
+  font-size: 18px;
+  font-weight: 500;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-image: url(/assets/background.png), linear-gradient(90deg,#000000 0%,rgba(0,0,0,0.22) 100%);
+
+  font-family: 'Open Sans', Arial, sans-serif;
+
+  .text-group {
+    max-width: 420px;
+    & > * {
+      margin-bottom: 2.75%;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  h4 {
+    font-weight: 500;
+  }
+  h4, h1 {
+    text-transform: uppercase;
+  }
+  .accent {
+    color: #c32026;
+    font-size: 60px;
+    line-height: 1.3em;
+  }
+
+  h1, p {
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+  }
+}

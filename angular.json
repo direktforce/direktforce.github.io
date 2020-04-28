@@ -52,6 +52,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/typeface-montserrat/index.css",
               "src/styles.scss"
             ],
             "scripts": []

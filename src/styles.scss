@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+  // font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+.container {
+  max-width: 1080px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
