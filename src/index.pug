@@ -1,10 +1,45 @@
-doctype html
-head
-  style
-    :scss
-      body {
-        margin: 0;
-      }
-body
-  div
-    p Test?!
+extends layout.pug
+
+block content
+  section.showcase
+    .container
+      h4 We design & manufacture specialized
+      h1 Hydraulic Cylinders & Valves
+      p For the past 15 years, our focus has been developing great OEM relationships by providing quality solutions at cost-effective rates leveraging our innovative designs.
+      
+      a.button.fancy(href="/contact") Request quote
+
+  section.background1
+    .container
+      h1 What we do
+      p We have over 15 years of experience <strong>designing, prototyping and manufacturing</strong> premium cost-effective hydraulic solutions. We have an experienced team committed to creating longlasting relationships.
+
+      .grid
+        .box
+          img(src="/static/shortcut-applications.png")
+          span Applications
+          a.button(href="/applications") Learn more
+
+        .box
+          img(src="/static/shortcut-products.png")
+          span Products
+          a.button(href="/products") Learn more
+
+        .box
+          img(src="/static/shortcut-capabilities.png")
+          span Capabilities
+          a.button(href="/capabilities") Learn more
+
+  section.background0
+    .container
+      img(src="/static/stainless.png")
+      h1 What's new...
+      p We are excited to announce our new Stainless Steel Cylinder series. More information coming soon.
+
+
+  section
+    .container
+      h1 Want to learn more?
+      h1.accent Get in touch!
+      p Send us an <a href="mailto:contact@direktforce.com">email</a> or call us: <a href="tel:1-716-652-3022">+1 (716) 652-3022</a>.
+      span TOast!

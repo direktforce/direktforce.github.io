@@ -1,0 +1,11 @@
+.showcase {
+  & > h1 {
+    max-width: 600px;
+  }
+  height: calc(100vh - 64px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-image: url(/static/background.png) ,linear-gradient(90deg, #000 0%,rgba(0,0,0,0.22) 100%);
+}

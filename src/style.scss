@@ -1,0 +1,97 @@
+@import "variables.scss";
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 14px;
+  background: black;
+  color: white;
+  font-family: Montserrat, Helvetica, Arial, Lucida, sans-serif;
+  & > header .brand > svg {
+    fill: white;
+  }
+}
+
+body.light {
+  color: black;
+  background: white;
+
+  & > header .brand > svg {
+    fill: black;
+  }
+}
+
+.container {
+  flex-grow: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+section {
+  padding: 4% 0;
+  h1, h4 {
+    text-transform: uppercase;
+  }
+  h1 {
+    text-shadow: 0em 0.1em 0.1em rgba(0,0,0,0.4);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.3em;
+    color: $color-primary;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 17px;
+  }
+  h1, h2, h3, h4, p {
+    max-width: 600px;
+    margin: 4% 0;
+  }
+  &.background1 {
+    color: #333;
+    background-color: $color-background-alt0;
+  }
+  &.background0 {
+    color: #333;
+    background-color: white;
+  }
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  &.fancy {
+    padding: 0.8em 1em;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: $color-primary;
+    border-radius: 15px;
+    white-space: nowrap;
+    color: white;
+    text-transform: uppercase;
+    border: 2px solid white;
+
+    &, &:after {
+      transition: border 300ms ease 0ms;
+    }
+
+    &:hover {
+      border-color: $color-primary;
+    }
+  }
+}
+a.button {
+  text-decoration: none;
+  color: inherit;
+}
