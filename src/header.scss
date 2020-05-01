@@ -38,4 +38,11 @@ header {
       }
     }
   }
+  .links a {
+    transition: opacity .4s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

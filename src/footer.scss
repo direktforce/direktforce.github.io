@@ -1,4 +1,15 @@
 footer {
   color: #666;
   background-color: #171717;
+
+  & > .container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+  }
 }

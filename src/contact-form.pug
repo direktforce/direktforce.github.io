@@ -1,0 +1,21 @@
+.contact-form
+  script.
+    function contactSubmit(event) {
+      const form = event.srcElement;
+      const values = new FormData(form);
+      try {
+        const obj = Array.from(values.entries()).reduce(([key, value], acc) => ({...acc, [key]: value}), {});
+        console.log(obj);
+      } catch (err) {
+        console.log(err);
+      }
+      event.preventDefault();
+      return false;
+    }
+  form(action="" method="POST" onsubmit="contactSubmit(event)")
+    input(type="text" name="name" placeholder="Name" required)
+    input(type="email" name="email" placeholder="Email Address" required)
+    input(type="company" name="company" placeholder="Company Name")
+    textarea(name="message" required placeholder="Message" rows="4")
+    div.submit
+      button(type="submit") Send
