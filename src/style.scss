@@ -27,41 +27,74 @@ body.light {
 
 .container {
   flex-grow: 1;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
 section {
+  & > .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   padding: 4% 0;
-  h1, h4 {
+  h1, h2, h3, h4 {
     text-transform: uppercase;
+    margin-bottom: 4%;
   }
   h1 {
     text-shadow: 0em 0.1em 0.1em rgba(0,0,0,0.4);
     font-size: 60px;
     font-weight: 700;
     line-height: 1.3em;
-    color: $color-primary;
+  }
+  h2 {
+    font-size: 48px;
   }
   h4 {
     font-size: 18px;
     font-weight: 500;
   }
   p {
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 500;
   }
   h1, h2, h3, h4, p {
-    max-width: 600px;
-    margin: 4% 0;
+    &.accent {
+      color: $color-primary;
+    }
+  }
+  &.background0 {
+    color: #333;
+    background-color: white;
   }
   &.background1 {
     color: #333;
     background-color: $color-background-alt0;
   }
-  &.background0 {
+  &.background2 {
     color: #333;
-    background-color: white;
+    background-color: $color-background-alt1;
+  }
+  &.centered > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &.left > .container {
+    & > * {
+      max-width: 600px;
+    }
+  }
+  &.cols > .container {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -71,27 +104,35 @@ h1, h2, h3, h4 {
 }
 
 .button {
-  &.fancy {
-    padding: 0.8em 1em;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: $color-primary;
-    border-radius: 15px;
-    white-space: nowrap;
-    color: white;
-    text-transform: uppercase;
-    border: 2px solid white;
+  display: inline-block;
 
-    &, &:after {
-      transition: border 300ms ease 0ms;
-    }
+  padding: 0.8em 1em;
+  font-weight: 600;
+  background-color: $color-primary;
+  border-radius: 15px;
+  white-space: nowrap;
+  color: white;
+  text-transform: uppercase;
+  border: 2px solid white;
 
-    &:hover {
-      border-color: $color-primary;
-    }
+  transition: border 300ms ease 0ms;
+
+  &:hover {
+    border-color: $color-primary;
   }
 }
 a.button {
   text-decoration: none;
-  color: inherit;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 6%;
+
+  &.three {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  & > .box {
+    overflow: hidden;
+  }
 }
