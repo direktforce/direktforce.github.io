@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg1074"
+   width="1080"
+   height="1080"
+   viewBox="0 0 1080 1080"
+   sodipodi:docname="background2_blur.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata1080">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1078">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Lighting"
+       id="filter2287">
+      <feComponentTransfer
+         in="blur"
+         result="component"
+         id="feComponentTransfer2285">
+        <feFuncR
+           type="gamma"
+           amplitude="0.37"
+           exponent="1.87166"
+           offset="0"
+           id="feFuncR2279" />
+        <feFuncG
+           type="gamma"
+           amplitude="0.37"
+           exponent="1.87166"
+           offset="0"
+           id="feFuncG2281" />
+        <feFuncB
+           type="gamma"
+           amplitude="0.37"
+           exponent="1.87166"
+           offset="0"
+           id="feFuncB2283" />
+      </feComponentTransfer>
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Blur"
+       id="filter2325">
+      <feGaussianBlur
+         stdDeviation="2 2"
+         result="blur"
+         id="feGaussianBlur2323" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     id="namedview1076"
+     showgrid="false"
+     inkscape:zoom="0.43703704"
+     inkscape:cx="612.689"
+     inkscape:cy="542.4617"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1074"
+     inkscape:pagecheckerboard="true" />
+  <rect
+     style="fill:#000000;fill-opacity:1;stroke-width:1.03205466"
+     id="rect2346"
+     width="1080"
+     height="1080"
+     x="0"
+     y="0" />
+  <g
+     id="g2321"
+     style="filter:url(#filter2325)">
+    <path
+       id="rect1769"
+       d="M 211.29492 524.49805 C 178.22253 524.67808 144.67437 534.43145 110.65039 553.75977 L -3.2363281 618.45703 L -3.2363281 730.45508 L 131.6543 1083.2363 L 265.60156 1083.2363 L 329.55664 1046.9043 C 373.31084 1022.0484 405.49264 989.06454 426.10352 947.95117 C 446.80099 906.20051 454.85936 859.57408 450.27734 808.07227 C 445.44275 756.12584 427.61885 703.03179 396.80469 648.78906 C 374.3255 609.21854 347.6284 578.80652 316.71289 557.55469 C 286.13656 536.11018 253.20046 525.12217 217.9043 524.58984 C 215.7037 524.51674 213.49975 524.48604 211.29492 524.49805 z M 213.91797 629.51758 C 224.27183 629.60574 234.37525 631.39878 244.22852 634.89844 C 272.63999 644.63466 296.82196 667.06506 316.77539 702.18945 C 335.9711 735.98001 347.84707 769.51948 352.40039 802.80664 C 356.70114 835.64919 352.92602 865.72799 341.07617 893.04297 C 329.31293 919.72065 309.52564 940.95992 281.71289 956.75977 L 201.32617 1002.4238 L 81.162109 687.83594 L 151.88281 647.66211 C 173.47373 635.39676 194.15151 629.34927 213.91797 629.51758 z "
+       style="fill:#333333;fill-opacity:1" />
+    <g
+       style="filter:url(#filter2287)"
+       transform="matrix(12.719245,-7.225537,9.4715663,16.672971,105.25254,289.97883)"
+       aria-label="DF"
+       id="g1758">
+      <path
+         style="fill:#c32026"
+         inkscape:connector-curvature="0"
+         d="m 15.502,17.3 -1.48,7.4 h 13 l -1.08,5.2 h -12.92 l -2.04,10.2 h -6.52 l 5.6,-28 h 21.16 l -1.08,5.2 z"
+         id="path1756" />
+    </g>
+  </g>
+</svg>
