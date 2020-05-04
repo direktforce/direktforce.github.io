@@ -1,0 +1,132 @@
+<!doctype html><head><title>Direkt Force | Specialized in Hydraulics & Pneumatic Equipment</title><link rel="shortcut icon" type="image/x-icon" href="favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="main.css" rel="stylesheet"></head><body><header><nav><div class="container"><a class="brand" href="/"><img src="./static/logo.svg"></a><ul class="links"><li><a href="/applications">Applications</a></li><li><a href="/products">Products</a></li><li><a href="/capabilities">Capabilities</a></li><li><a href="/careers">Careers</a></li><li><a href="/contact">Contact</a></li></ul></div></nav></header><main><section class="bg-image" style="--bg-image: url('./static/background-generic-short.svg')"><div class="container"><h1>Contact us</h1></div></section><section class="background1"><div class="container"><p><strong>Direkt Force</strong> is located in Western New York servicing OEM customers worldwide. We focus on designing and manufacturing fluid power products for demanding applications. We are more than happy to discuss custom wishes on the phone, in person or through our contact form.</p></div></section><section class="background0"><div class="container"><div class="grid three"><div class="box right"><span class="title">Address</span><div class="info"><span>PO Box 189</span><span>455 Olean Road</span><span>East Aurora, NY 14052</span></div></div><div class="box right"><span class="title">Contact</span><div class="info"><span>Tel: <a href="tel:1-716-652-3022">+1 (716) 652-3022</a></span><span>Fax: <a href="fax:1-716-652-3218">+1 (716) 652-3218</a></span><span>Email: <a href="mailto:contact@direktforce.com">contact@direktforce.com</a></span></div></div><div class="box"><img src="./static/contact-qr.svg" style="width: 200px;"></div></div></div></section><section class="background1 centered"><div class="container"><h1>Get in touch</h1><p>Leave a message or stop by our office!</p><div class="form contact-form"><script>const ENDPOINT_URL = 'https://wy2rngkmq2.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
+const LOCALSTORAGE_KEY_ATTR = 'data-localstorage-key';
+
+function getSavedState(key) {
+  try {
+    const state = JSON.parse(localStorage.getItem(key)) || {};
+    if (state.submittedOn != null) {
+      state.submittedOn = new Date(state.submittedOn);
+    }
+    return state;
+  } catch (err) {
+    localStorage.removeItem(key);
+    return {};
+  }
+}
+
+function setSavedState(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function setFormState(formEl, state) {
+  const { submitted, submittedOn, value } = state;
+
+  for (const el of formEl.querySelectorAll('input,textarea')) {
+    const key = el.getAttribute('name');
+    el.value = value[key];
+  }
+
+  if (submitted) {
+    const submitButtonEl = formEl.querySelector('button[type="submit"]');
+    formEl.querySelector('.status-message').textContent = `Message sent on ${submittedOn.toLocaleDateString('en-us')} at ${submittedOn.toLocaleTimeString('en-us')}.`;
+    submitButtonEl.textContent = 'Message Sent!';
+    submitButtonEl.classList.add('success');
+
+    formEl.querySelector('fieldset').setAttribute('disabled', '');
+  }
+}
+
+function getFormState(formEl) {
+  const fd = new FormData(formEl);
+  const obj = {};
+  for (const [key, value] of fd.entries()) {
+    obj[key] = value;
+  }
+  return {value: obj};
+}
+
+function setFormLoading(formEl) {
+  const submitButtonEl = formEl.querySelector('button[type="submit"]');
+  submitButtonEl.textContent = 'Sending...';
+  formEl.querySelector('fieldset').setAttribute('disabled', '');
+}
+
+function setFormErrored(formEl) {
+  formEl.querySelector('fieldset').removeAttribute('disabled');
+  formEl.querySelector('.status-message').textContent = `Message failed to send. Please try again or send us an email.`;
+}
+
+function setFormSuccess(formEl) {
+  const submitButtonEl = formEl.querySelector('button[type="submit"]');
+  submitButtonEl.textContent = 'Message Sent!';
+  submitButtonEl.classList.add('success');
+}
+
+function setFormReset(formEl) {
+  formEl.querySelector('fieldset').removeAttribute('disabled');
+  for (const el of formEl.querySelectorAll('input,textarea')) {
+    el.value = '';
+  }
+}
+
+async function sendMessage(value) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(value),
+  };
+  const res = await fetch(ENDPOINT_URL, options);
+  if (res.status >= 400 || res.status < 200) {
+    throw new Error(`request failed with code ${res.status}`);
+  }
+  return res.json();
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  for (const formEl of document.querySelectorAll('form')) {
+    const localStorageKey = formEl.getAttribute(LOCALSTORAGE_KEY_ATTR);
+    if (localStorageKey == null) {
+      continue;
+    }
+    try {
+      const state = getSavedState(localStorageKey);
+      setFormState(formEl, state);
+    } catch (err) {
+      console.log(err);
+      localStorage.removeItem(localStorageKey);
+    }
+    formEl.oninput = ((key) => (e) => {
+      const el = e.target;
+      const state = getSavedState(key);
+      const value = state.value || {};
+      value[el.getAttribute('name')] = el.value;
+      setSavedState(key, Object.assign(state, {value}));
+    })(localStorageKey);
+  }
+});
+
+async function contactSubmit(event) {
+  const formEl = event.srcElement;
+  const {value} = getFormState(formEl);
+  let filteredValue = {};
+  for (const key of ['name', 'email', 'company', 'message']) {
+    filteredValue[key] = value[key] || null;
+  }
+  const localStorageKey = formEl.getAttribute(LOCALSTORAGE_KEY_ATTR);
+  setSavedState({value});
+  setFormLoading(formEl);
+  const result = await sendMessage(filteredValue);
+  try {
+    await new Promise(r => setTimeout(r, 2000));
+    const state = {submitted: true, submittedOn: new Date(), value: filteredValue};
+    setSavedState(localStorageKey, state);
+    setFormSuccess(formEl);
+  } catch (err) {
+    setFormErrored(formEl);
+  }
+
+}</script><form action="" method="POST" onsubmit="contactSubmit(event); event.preventDefault(); return false;" data-localstorage-key="contact-message"><fieldset><div><input name="name" placeholder="Name" required><input type="email" name="email" placeholder="Email Address" required><input type="company" name="company" placeholder="Company Name"><textarea name="message" required placeholder="Message" rows="4"></textarea><div class="submit"><button type="submit">Send</button></div><p class="status-message"></p></div></fieldset></form></div></div></section></main><footer><div class="container"><span>Call Us <a href="tel:1-716-652-3022">+1 (716) 652-3022</a> Copyright © 2019 by Direkt Force LLC. All Rights Reserved. | Web Development by Ksquare</span></div></footer><script src="main.js"></script></body>
