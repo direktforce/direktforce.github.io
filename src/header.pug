@@ -2,18 +2,26 @@
 header
   nav
     .container
-      a.brand(href="/")
-        // svg
-        //   use(href="/static/logo.svg#logo")
-        img(src="./static/logo.svg")
-      ul.links
-        li
-          a(href="/applications") Applications
-        li
-          a(href="/products") Products
-        li
-          a(href="/capabilities") Capabilities
-        li
-          a(href="/careers") Careers
-        li
-          a(href="/contact") Contact
+      .toggle
+        .brand-container
+          a.brand(href="/")
+            // svg
+            //   use(href="/static/logo.svg#logo")
+            img(src="./static/logo.svg")
+
+        input(type="checkbox")
+        .icon
+          span
+          span
+          span
+        ul.links
+          li
+            a(href="/applications") Applications
+          li
+            a(href="/products") Products
+          li
+            a(href="/capabilities") Capabilities
+          li
+            a(href="/careers") Careers
+          li
+            a(href="/contact") Contact

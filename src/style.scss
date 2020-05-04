@@ -127,6 +127,23 @@ section {
       width: 100%;
     }
   }
+  @media(max-width: 768px) {
+    h1 {
+      font-size: 42px;
+    }
+    h2 {
+      font-size: 36px;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
+    max-width: auto;
+    text-align: center;
+  }
+
 }
 
 h1, h2, h3, h4 {
@@ -186,7 +203,7 @@ a.button {
   &.three {
     grid-template-columns: 1fr 1fr 1fr;
 
-    @media(max-width: 600px) {
+    @media(max-width: 768px) {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr 1fr;
     }
@@ -199,14 +216,18 @@ a.button {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    &.right {
-      align-items: start;
+    @media(min-width: 768px) {
+      &.left {
+        align-items: start;
+      }
     }
     & > span.title {
       text-align: center;
-      &.left {
-        text-align: left;
-        align-self: flex-start;
+      @media(min-width: 768px) {
+        &.left {
+          text-align: left;
+          align-self: flex-start;
+        }
       }
       margin: 20px 0;
       font-weight: 700;
@@ -309,7 +330,6 @@ a.button {
       padding: 1em;
       font-size: 16px;
     }
-
     textarea {
       resize: vertical;
     }
@@ -336,22 +356,16 @@ a.button {
       }
     }
   }
-  // form > fieldset[disabled] > div {
-  //   input, textarea, button {
-  //     background-color: lightgrey;
-  //   }
-  // }
 }
 
 .form.application-form form {
   grid-template-columns: 1fr 1fr;
-  textarea, input {
-    &[name="message"] {
-      grid-column: 1 / 3;
-    }
-  }
-  .submit {
+
+  .submit, &[name="message"] {
     grid-column: 1 / 3;
+    @media(max-width: 768px) {
+      grid-column: 1 / 2;
+    }
   }
 }
 section.background1 .form {

@@ -54,6 +54,9 @@
     }
 
     function setFormErrored(formEl) {
+      const submitButtonEl = formEl.querySelector('button[type="submit"]');
+      submitButtonEl.textContent = 'Send';
+      submitButtonEl.classList.remove('success');
       formEl.querySelector('fieldset').removeAttribute('disabled');
       formEl.querySelector('.status-message').textContent = `Message failed to send. Please try again or send us an email.`;
     }
