@@ -27,20 +27,21 @@ module.exports.staticSiteMailer = async (event, context) => {
     };
   }
 
+  const Data = [
+    `A message redirected from direktforce.com:`,
+    `Name: ${name || '(blank)'}`,
+    `Email: ${email || '(blank)'}`
+    `Company: ${company || '(blank)'}`
+    `Message:`,
+    `${message || '(blank)'}`,
+  ].join('\n');
+
   const emailParams = {
     Destination: {
       ToAddresses: [toEmail],
     },
     Message: {
-      Body: { Text: { Data:
-`A message redirected from direktforce.com:
-Name: ${name || '(blank)'}
-Email: ${email || '(blank)'}
-Company: ${company || '(blank)'}
-Message:
-${message || '(blank)'}
-`,
-      } }, 
+      Body: { Text: { Data } },
       Subject: { Data: `A message from ${name} (${email})` },
     },
     Source: fromEmail,

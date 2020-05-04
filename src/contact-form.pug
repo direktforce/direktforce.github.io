@@ -106,7 +106,7 @@
           const state = getSavedState(key);
           const value = state.value || {};
           value[el.getAttribute('name')] = el.value;
-          setSavedState(key, {...state, value});
+          setSavedState(key, Object.assign(state, {value}));
         })(localStorageKey);
       }
     });
