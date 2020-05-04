@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-  section.bg-image(style="--bg-image: url('/static/background-generic-short.svg')")
+  section.bg-image(style="--bg-image: url('./static/background-generic-short.svg')")
     .container
       h1 Contact us
 
@@ -24,7 +24,7 @@ block content
             span Fax: <a href="fax:1-716-652-3218">+1 (716) 652-3218</a>
             span Email: <a href="mailto:contact@direktforce.com">contact@direktforce.com</a>
         .box
-          img(src="/static/contact-qr.svg" style="width: 200px;")
+          img(src="./static/contact-qr.svg" style="width: 200px;")
 
   section.background1.centered
     .container
