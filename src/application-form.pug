@@ -13,8 +13,10 @@
       return false;
     }
   form(action="" method="POST" onsubmit="contactSubmit(event)")
-    input(type="text" name="name" placeholder="Name" required)
-    input(type="email" name="email" placeholder="Email Address" required)
-    textarea(name="message" required placeholder="Tell us a little about yourself..." rows="6")
-    div.submit
-      button(type="submit") Submit
+    fieldset
+      div
+        input(type="text" name="name" placeholder="Name" required)
+        input(type="email" name="email" placeholder="Email Address" required)
+        textarea(name="message" required placeholder="Tell us a little about yourself..." rows="6")
+        div.submit
+          button(type="submit") Submit

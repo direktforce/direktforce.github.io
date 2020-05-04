@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "webpack-pug-starter",
   "dependencies": {
+    "aws-sdk": "^2.668.0",
     "typeface-montserrat": "0.0.75",
     "typeface-open-sans": "0.0.75"
   },
