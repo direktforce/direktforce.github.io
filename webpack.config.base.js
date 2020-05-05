@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: './src/index.js',
@@ -16,12 +17,20 @@ module.exports = {
       {from: 'static', to: 'static'},
       'favicon.ico',
     ]),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true,
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      statsFilename: 'stats.json',
+    }),
   ],
   module: {
     rules: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.pug$/, loader: 'pug-loader' },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+      // { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.scss$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 			},
 		],
   },

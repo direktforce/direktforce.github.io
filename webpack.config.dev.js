@@ -6,6 +6,7 @@ const baseConfig = require('./webpack.config.base.js');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
+  plugins: [ ],
   devServer: {
     port: 8080,
     host: '0.0.0.0',
