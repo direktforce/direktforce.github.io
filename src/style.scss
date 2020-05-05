@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 
+picture > * {
+  max-width: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -122,10 +126,20 @@ section {
     display: grid;
     grid-gap: 12px;
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    & > * {
+      justify-self: center;
+    }
     align-items: center;
     img,
     picture {
       width: 100%;
+    }
+    @media(max-width: 768px) {
+      grid-template-columns: 1fr;
+      img, picture {
+        max-width: 300px;
+      }
     }
   }
   @media(max-width: 768px) {
@@ -187,7 +201,7 @@ a.button {
 .grid {
   display: grid;
   padding: 4% 0;
-  grid-gap: 20px;
+  grid-gap: 48px;
   overflow: hidden;
   min-height: 0;
 
@@ -206,7 +220,7 @@ a.button {
 
     @media(max-width: 768px) {
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+      // grid-template-rows: 1fr 1fr 1fr;
     }
   }
 }
@@ -217,11 +231,6 @@ a.button {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    @media(min-width: 768px) {
-      &.left {
-        align-items: start;
-      }
-    }
     & > span.title {
       text-align: center;
       @media(min-width: 768px) {
@@ -276,6 +285,15 @@ a.button {
         color: inherit;
       }
     }
+    @media(max-width: 768px) {
+      // &.left {
+      //   align-items: start;
+      // }
+      img, picture {
+        max-width: 300px;
+      }
+    }
+
   }
   &.big > .box .img-box {
     height: 300px;
@@ -364,7 +382,7 @@ a.button {
 .form.application-form form {
   grid-template-columns: 1fr 1fr;
 
-  .submit, &[name="message"] {
+  .submit, *[name="message"] {
     grid-column: 1 / 3;
     @media(max-width: 768px) {
       grid-column: 1 / 2;
@@ -401,3 +419,5 @@ section.background0 .form {
 .flex-stretch {
   align-self: stretch;
 }
+
+

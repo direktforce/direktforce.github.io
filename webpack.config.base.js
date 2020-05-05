@@ -24,14 +24,4 @@ module.exports = {
       statsFilename: 'stats.json',
     }),
   ],
-  module: {
-    rules: [
-      { test: /\.pug$/, loader: 'pug-loader' },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-      // { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-			},
-		],
-  },
 };
