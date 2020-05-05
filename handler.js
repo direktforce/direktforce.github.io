@@ -4,8 +4,8 @@ const aws = require('aws-sdk');
 const ses = new aws.SES();
 
 const ToAddresses = ['sam.zagrobelny@gmail.com']; // kwk@direktforce.com
-const CcAddresses = [`7165122455@msg.fi.google.com`, 'prizerebel_junk@live.com']; // sam.zagrobelny@gmail.com
-const SourceAddress = 'strangesast@gmail.com'; // eventually will be contact.direktforce.com
+const CcAddresses = [`7165122455@msg.fi.google.com`, 'strangesast@gmail.com']; // sam.zagrobelny@gmail.com
+const SourceAddress = 'contact@direktforce.com'; // 'strangesast@gmail.com';
 
 const domainName = '*'; // should update to direktforce.com / direktforce.github.io
 const HEADERS = {
@@ -13,26 +13,6 @@ const HEADERS = {
   'Access-Control-Allow-Headers': 'x-requested-with',
   'Access-Control-Allow-Credentials': true
 };
-
-const HTMLHead = `
-  <title>A Message From direktforce.com</title>
-  <style>
-    body {
-      margin: 0;
-    }
-    .details {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 8px;
-    }
-    .detail p {
-      grid-column: 1 / 3;
-    }
-    .detail > *:empty:after {
-      content: "(blank)";
-    }
-  </style>
-`;
 
 const DOMAIN = {
   url: 'https://direktforce.com',
@@ -52,7 +32,7 @@ function formatContactEmail(body) {
   const HTMLData = `
   <html><body>
     <h1>New message redirected from <a href="${DOMAIN.url}">${DOMAIN.name}</a></h1>
-    <div style="display: grid; grid-template-columns: auto auto;">
+    <div style="display: grid;grid-template-columns: auto auto;">
       <span>Name:</span><span>${body.name}</span>
       <span>Email:</span><span>${body.email}</span>
       <span>Company:</span><span>${body.company}</span>
@@ -84,7 +64,7 @@ function formatApplicationEmail(body) {
   const HTMLData = `
   <html><body>
     <h1>New application redirected from <a href="${DOMAIN.url}">${DOMAIN.name}</a></h1>
-    <div style="display: grid; grid-template-columns: auto auto;">
+    <div style="display: grid;grid-template-columns: auto auto;">
       <span>Name:</span><span>${body.name}</span>
       <span>Email:</span><span>${body.email}</span>
       <span>Message:</span>
