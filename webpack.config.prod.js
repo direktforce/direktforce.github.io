@@ -5,12 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const baseConfig = require('./webpack.config.base.js');
 
 module.exports = merge(baseConfig, {
-  plugins: [
-    // new CopyPlugin([
-    //   {from: 'static', to: 'static'},
-    //   'favicon.ico',
-    // ]),
-  ],
+  plugins: [],
   mode: 'production',
   optimization: {
     minimize: true,

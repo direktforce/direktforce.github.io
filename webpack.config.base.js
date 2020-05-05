@@ -19,23 +19,9 @@ module.exports = {
   ],
   module: {
     rules: [
-      { test: /\.pug$/, loader: 'pug-loader' },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
       { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.scss$/,
         use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-        // use: [
-        //   // Creates `style` nodes from JS strings
-        //   // {loader: 'style-loader', options: {injectType: 'styleTag'}},
-        //   {
-        //     loader: 'file-loader',
-        //   },
-        //   MiniCssExtractPlugin.loader,
-        //   // Translates CSS into CommonJS
-        //   'css-loader',
-        //   // Compiles Sass to CSS
-        //   'sass-loader',
-        // ],
 			},
 		],
   },

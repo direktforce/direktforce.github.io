@@ -19,4 +19,10 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.join(__dirname, './dist'),
   },
+  module: {
+    rules: [
+      { test: /\.pug$/, loader: 'pug-loader' },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+    ]
+  }
 });
