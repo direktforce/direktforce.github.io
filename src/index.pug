@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-  section.showcase.bg-image.gradient.left(style="--bg-image: url('./static/background.png')")
+  section.showcase.bg-image.gradient.left(style="--bg-image: url('./static/background.webp')")
     .container
       h4 We design & manufacture specialized
       h1.accent Hydraulic Cylinders & Valves
@@ -17,32 +17,40 @@ block content
 
       .grid.three
         .box
-          img(src="./static/shortcut-applications.png")
+          picture
+            source(srcset="./static/shortcut-applications.webp" type="image/webp")
+            img(srcset="./static/shortcut-applications.png" type="image/png")
           span.title Applications
           p Learn more about the many applications that use our solutions.
           a.button(href="/applications") Learn more
 
         .box
-          img(src="./static/shortcut-products.png")
+          picture
+            source(srcset="./static/shortcut-products.webp" type="image/webp")
+            img(srcset="./static/shortcut-products.png" type="image/png")
           span.title Products
           p View our wide range of specialized hydraulic and pneumatic solutions.
           a.button(href="/products") Learn more
 
         .box
-          img(src="./static/shortcut-capabilities.png")
+          picture
+            source(srcset="./static/shortcut-capabilities.webp" type="image/webp")
+            img(srcset="./static/shortcut-capabilities.png" type="image/png")
           span.title Capabilities
           p We take pride in our innovative designs and unique manufacturing capabilities.
           a.button(href="/capabilities") Learn more
 
   section.background0.cols
     .container
-      img(src="./static/stainless-steel-render.png")
+      picture
+        source(srcset="./static/stainless-steel-render.webp" type="image/webp")
+        img(src="./static/stainless-steel-render.png" type="image/png")
       div
         h1 What's new...
         p We are excited to announce our new <strong>Stainless Steel Cylinder</strong> series. More information coming soon.
 
 
-  section.bg-image.darkened.centered(style="--bg-image: url('./static/background1.png')")
+  section.bg-image.darkened.centered(style="--bg-image: url('./static/background1.webp')")
     .container
       h2 Want to learn more?
       h2.accent Get in touch!
