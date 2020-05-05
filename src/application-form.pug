@@ -1,22 +1,11 @@
 .form.application-form
-  script.
-    function contactSubmit(event) {
-      const form = event.srcElement;
-      const values = new FormData(form);
-      try {
-        const obj = Array.from(values.entries()).reduce(([key, value], acc) => ({...acc, [key]: value}), {});
-        console.log(obj);
-      } catch (err) {
-        console.log(err);
-      }
-      event.preventDefault();
-      return false;
-    }
-  form(action="" method="POST" onsubmit="contactSubmit(event)")
+  form(data-localstorage-key="application-message")
     fieldset
       div
+        input(type="hidden" name="type" value="application")
         input(type="text" name="name" placeholder="Name" required)
         input(type="email" name="email" placeholder="Email Address" required)
         textarea(name="message" required placeholder="Tell us a little about yourself..." rows="6")
         div.submit
           button(type="submit") Submit
+        p.status-message
